@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cube</title>
+</head>
+<body>
+    <nav class="pasek">
+        <a href="#"><img src="img/logo.png" alt="klocek"></a>
+        <ul class="menu">
+            
+            <li>
+                <a href="#" onclick="Pokaz.call(this)">POZYCJA1↓</a>
+                
+                    <ul class="menu">
+                            <li><a href="#">POZYCJA1.1</a></li>
+                            <li><a href="#">POZYCJA1.2</a></li>
+                            <li><a href="#">POZYCJA1.3</a></li>
+                    </ul>
+                
+            </li>
+            <li><a href="#">POZYCJA2</a></li>
+            <li><a href="#">POZYCJA3</a></li>
+            <li><a href="#">POZYCJA4</a></li>
+            <li>
+                    <a href="#" onclick="Pokaz.call(this)">POZYCJA5↓</a>
+                    
+                        <ul class="menu">
+                                <li><a href="#">POZYCJA5.1</a></li>
+                                <li><a href="#" >POZYCJA5.2</a></li>
+                                <li><a href="#">POZYCJA5.3</a></li>
+                        </ul>
+                    
+            </li>
+        </ul>
+        
+        
+    </nav>
+    <header class="container-fluid header-main-fluid">
+        <div class="container header-main">
+            <img src="img/cube.png" alt="Cube">
+            <div>
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, veritatis?</p>
+                <a href="#">Read Me...</a>
+            </div>
+        </div>
+    </header>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        function Pokaz()
+        {
+            //this.innerHTML = "DUPA";
+            //this.style.color=red;
+            //this.nextSibling.color=red;
+            //this.style.display = "none";
+            //this.nextElementSibling.style.display = "block";
+            
+            if(this.nextElementSibling.style.display=="none")
+            {
+                this.nextElementSibling.style.display="flex";
+                this.nextElementSibling.style.position="absolute";
+                this.nextElementSibling.style.top=this.getBoundingClientRect().bottom + "px";
+                if(this.nextElementSibling.getBoundingClientRect().right > window.innerWidth)
+                {
+                    
+                    this.nextElementSibling.style.right="0px";
+                }
+                console.log("BOTTOM:" + this.getBoundingClientRect().bottom)
+                //console.log(this.getBoundingClientRect().bottom);
+                return 0;
+            }
+            else{this.nextElementSibling.style.display="none";}
+        }
+    </script>
+</body>
+</html>
