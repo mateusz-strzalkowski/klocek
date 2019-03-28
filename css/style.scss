@@ -39,6 +39,11 @@ $menu-color:white;
 
 .header-main > img{
     width: 80%;
+    max-width:200px;
+}
+
+.header-main > div{
+
 }
 
 .header-main > div > h2{
@@ -52,7 +57,7 @@ $menu-color:white;
 ul.menu{
     //display:flex;
     background-color:$menu-color;
-    display:none;
+    display:none;//domyslnie schowane
     flex-direction:column;
         >li{
             margin:0px 10px 0px 10px;
@@ -76,22 +81,22 @@ ul.menu{
     display:flex;
     flex-direction:row;
     justify-content: space-between;
+    //widoczny najwyzszy poziom menu
     >ul{
         display:flex;
     }
-    /*
-    >ul{
-        display:flex;
-        flex-direction:row;
-        >li{
-            margin:0px 10px 0px 10px;
-            display:flex;
-            flex-direction:row;
-            align-items:center;
-            text-align: center;
-        }
+
+}
+
+.reklamy{
+    display: flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    >img{
+        margin:20px;
     }
-    */
+    //justify-content:center;
 }
 
 
@@ -117,8 +122,9 @@ ul.menu{
         display: none;
     }
     .header-main > img{
-        width: auto;
+        //width: auto;
     }
+
     ul.menu{
         flex-direction:row;
         background-color:$menu-color;
@@ -153,6 +159,15 @@ ul.menu{
 
     .hidden-lg {
         display: none;
+    }
+
+    .header-main{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height:100vh;
+        padding: 0 15px;
     }
 }
 

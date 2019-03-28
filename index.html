@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Cube</title>
 </head>
-<body>
+<body onclick="showCoords(event)">
     <nav class="pasek">
         <a href="#"><img src="img/logo.png" alt="klocek"></a>
-        <ul class="menu">
+        <ul class="menu" >
             
             
             <li>
@@ -20,7 +20,13 @@
                     <ul class="menu">
                             <li><a href="#">POZYCJA1.1</a></li>
                             <li><a href="#">POZYCJA1.2</a></li>
-                            <li><a href="#">POZYCJA1.3</a></li>
+                            <li>
+                                <a href="#" onclick="Pokaz.call(this)">POZYCJA1.3^</a>
+                                <ul class="menu">
+                                        <li><a href="#">POZYCJA</a></li>
+                                        <li><a href="#">POZYCJA</a></li>
+                                </ul>
+                            </li>
                     </ul>
                 
             </li>
@@ -51,8 +57,17 @@
             </div>
         </div>
     </header>
+    <section class="reklamy">
+        <img src="img/client_1.png" alt="klient">
+        <img src="img/client_2.png" alt="klient">
+        <img src="img/client_3.png" alt="klient">
+        <img src="img/client_4.png" alt="klient">
+        <img src="img/client_5.png" alt="klient">
+    </section>
+    <p id="demo"></p>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <script>
+        document.style = "color:red;";
         function Pokaz()
         {
             //this.innerHTML = "DUPA";
@@ -63,19 +78,32 @@
             
             if(this.nextElementSibling.style.display=="none")
             {
-                this.nextElementSibling.style.display="flex";
-                this.nextElementSibling.style.position="absolute";
-                this.nextElementSibling.style.top=this.getBoundingClientRect().bottom + "px";
+                //this.nextElementSibling.style.display="flex";
+                //this.nextElementSibling.style.position="absolute";
+                var wym = this.getBoundingClientRect();
+                //this.nextElementSibling.style.top=(wym.bottom) + "px";
+                this.nextElementSibling.style.cssText=("display:flex; position:absolute; top:"+wym.bottom+"px !important;");
+                //this.nextElementSibling.style.top=this.getBoundingClientRect().bottom + "px";
                 if(this.nextElementSibling.getBoundingClientRect().right > window.innerWidth)
                 {
                     
                     this.nextElementSibling.style.right="0px";
                 }
-                console.log("BOTTOM:" + this.getBoundingClientRect().bottom)
+                console.log("BOTTOM:" + wym.bottom +" TOP" +wym.top);
+                console.log(this.nextElementSibling.style.cssText)
+                //document.getElementById("demo").innerHTML += "<br>BOTTOM:" + wym.bottom + wym.top;
                 //console.log(this.getBoundingClientRect().bottom);
                 return 0;
             }
             else{this.nextElementSibling.style.display="none";}
+            document.style = "color:red;";
+        }
+
+        function showCoords(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var coords = "X coords: " + x + ", Y coords: " + y;
+        document.getElementById("demo").innerHTML = coords;
         }
     </script>
 </body>
