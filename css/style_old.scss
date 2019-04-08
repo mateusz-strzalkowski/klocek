@@ -4,17 +4,7 @@ $menu-color:white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
 }
-//widoczny w html-u odstęp
-spatio{
-    display:block;
-    margin:0;
-    padding:0;
-    border:0;
-    height:100px;
-}
-
 .hidden{
     display:none;
 }
@@ -34,13 +24,12 @@ spatio{
 .button{
     margin: 0px;
     padding:20px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 10px;
     text-align:center;
     transition: all 0.3s;
     border:none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-decoration: none;
     //cursor: pointer;
 }
 .button:hover{
@@ -131,7 +120,6 @@ spatio{
     align-items:center;
     font-family: 'Raleway', sans-serif;
     margin: 30px auto;
-    //margin-top:60px;
     text-align:center;
     > h2{
         
@@ -169,7 +157,6 @@ spatio{
     justify-content:space-around;
     align-items:center;
     font-family: 'Raleway', sans-serif;
-    //margin-top:90px;
 }
 
 .kafelek{
@@ -180,12 +167,10 @@ spatio{
     border:none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align:left;
-    cursor:pointer;
 }
 .kafelek:hover{
     transform:translateY(35px);
 }
-
 ////////////
 //PRODUKTY//
 ////////////
@@ -195,227 +180,99 @@ spatio{
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    margin-bottom:90px;
+    
+    /*>div{
+        width:30%;
+        height:0;
+        padding-top:30% * 1.42;
+        background-color: red;
+        margin:20px;
+        >div{
+            position:absolute; top:0;
+            width:100%;
+            height:0;
+            padding-top:66%;
+            background-color: rgb(0, 128, 43);
+        }
+    }*/
 }
 
-.prod-podwojne{
-    width:350px;
-    height: 508px;
+@mixin proporcje($szerokosc, $wysokosc)//w % i w liczbie np. 100% i 1.4
+{
+    width:$szerokosc;
+    height:0;
+    padding-top:$szerokosc * $wysokosc;
+    position: relative;
+    overflow:hidden;
+    >div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: green;
+    }
+}
 
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: space-between;
+.p-sub{
+    @include proporcje(30%, 1.42);
+    background-color: red;
+    margin:20px;
+}
 
-    margin-top:20px;
-    margin:20px 10px;
+
+.p0-sub{
+        width:30%;
+        height:0;
+        padding-top:30% * 1.42;
+        background-color: red;
+        margin:20px;
+        >div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: green;
+        }
 }
 .produkt{
-    width: 350px;
-    height:240px;
-    //flex-shrink:0;
+    width:100%;
+    height:0;
+    padding-top:66%;
+    position: relative;
+    overflow:hidden;
+    background-color: blue;
+    margin:10px 0;
 }
-
-.p1{
+/*
+.produkty>div:nth-child(1)
+{
     background-color: #e1a87b;
 }
-.p2{
+.produkty>div:nth-child(2)
+{
     background-color: #a49b9e;
 }
-.p3{
+.produkty>div:nth-child(3)
+{
     background-color: #e6dedc;
-    height: 508px;
-    //flex-shrink: 0;
+    $w1:2*0.625*$szerProd;
+    height:$w1;
 }
-.p4{
+.produkty>div:nth-child(4)
+{
     background-color: #bfeeb8;
 }
-.p5{
-    background-color: #8fa387;
-}
-
-//////////
-//CYTATY//
-//////////
-
-.cytaty-fluid{
-    background-color: rgb(246,246,246);
-}
-.cytaty{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Raleway', sans-serif;
-}
-.cytat{
-    width:50%;
-    padding:20px;
-    display:flex;
-    flex-direction:row;
-    align-items:flex-start;
-    
-    >div.okragly{
-        flex-shrink: 0;
-        margin-right:30px;
-        width:80px;
-        height:80px;
-        background-color: #a6a4b1;
-        border-radius:40px;
-    }
-    .cytat-tekst{
-        >q{
-            font-weight: 300;
-            font-size: 14px;
-            font-style: italic;
-            color: #898989;
-        }
-        >p:before{
-            content:"— ";
-        }
-        >p{
-            font-weight: 600;
-            font-size: 10px;
-            font-style: italic;
-            color: #4d4d4d;
-        }
-    }
-    
-}
-
-//////////
-//STOPKA//
-//////////
-.footer-fluid
+.produkty>div:nth-child(5)
 {
-    background-color: #262626;
+    background-color: #8fa387;
+}*/
 
-}
-.twojbiznes{
-    width:50%;
-    text-align:center;
-    color:white;
-    font-size:22px;
-}
-.negroguzik{
-    font-weight: 600;
-    background-color: #262626;
-    color: white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #fff;
-    padding: 20px 20px;
-    margin:20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    
-    cursor: pointer;
-}
-.negroguzik:hover{
-    color:#262626;
-    background-color:#fff;
-}
-
-.stopka{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    >div{
-        width:50%;
-        margin-top:40px;
-    }
-}
-.stopka-opis{
-    >h3{
-        color:white;
-        font-size:20px;
-        margin-bottom:10px;
-    }
-    >p{
-        color:#898989;
-        font-size:14px;
-    }
-}
-
-.stopka-linki{
-    >a{
-        color:#17b794;
-        text-decoration: none;
-    }
-    >a:hover{
-        color:white;
-    }
-}
-.stopka-kontakt{
-    color:#17b794;
-}
-.email{
-    input[type=text]{
-        font-family: 'Raleway', sans-serif;
-        font-size:14px;
-        font-weight:300;
-        color:#239c71;
-        padding:10px;
-        width:225px;
-        height:50px;
-        border-radius:5px;
-        border:none;
-    }
-    input[type=text]::placeholder{
-        color:#898989;
-    }
-    input[type=submit]
-    {
-        font-family: 'Raleway', sans-serif;
-        font-size:10px;
-        font-weight:600;
-        color:white;
-        width:70px;
-        height:52px;
-        border-radius:5px;
-        border:none;
-        background-color:#239c71;
-        margin:2px 0px;
-        transition: 0.3s;
-        cursor: pointer;
-    }
-    input[type=submit]:hover{
-        background-color: #00ffa3;
-    }
-}
-.koniec-fluid{
-    background-color: #1a1a1a;
-}
-.koniec{
-    display:flex;
-    flex-direction: row;
-    justify-content:space-between;
-
-    padding:20px 50px;
-    p,a{
-        display:inline;
-        font-size:10px;
-        font-weight:300;
-    }
-    p{
-        color:#4d4d4d;
-    }
-    a{
-        color:#239c71;
-    }
-}
-
-//////////////////////////
-//WADLIWY PASEK NA GÓRZE//
-//////////////////////////
-ul.menu{
+/*ul.menu{
     //display:flex;
     background-color:$menu-color;
     display:none;//domyslnie schowane
-
     flex-direction:column;
         >li{
             margin:0px 10px 0px 10px;
@@ -424,10 +281,7 @@ ul.menu{
             align-items:center;
             text-align: center;
         }
-    a{    
-    color:#17b794;
-    text-decoration: none;
-    }
+    
 }
 
 .pasek{
@@ -442,15 +296,12 @@ ul.menu{
     display:flex;
     flex-direction:row;
     justify-content: space-between;
-    img{
-        margin-top:5px;
-    }
     //widoczny najwyzszy poziom menu
     >ul{
         display:flex;
     }
 
-}
+}*/
 
 
 
@@ -474,16 +325,13 @@ ul.menu{
         //width: auto;
     }
 
-    ul.menu{
+    /*ul.menu{
         flex-direction:row;
         background-color:$menu-color;
         a{
             background-color: $menu-color;
         }
-    }
-    spatio{
-        height:60px;
-    }
+    }*/
 }
 
 @media (min-width: 768px) {
@@ -497,9 +345,6 @@ ul.menu{
 
     .hidden-md {
         display: none;
-    }
-    spatio{
-        height:80px;
     }
 }
 
@@ -526,36 +371,6 @@ ul.menu{
     }
     .naKafelki{
         flex-direction: row;
-    }
-
-    .produkty{
-        flex-direction:row;
-        justify-content: space-between;
-        align-items:flex-start;
-        >div{margin-top:0;}
-    }
-    .prod-podwojne{margin-top:0;}
-    .cytaty{
-        flex-direction:row;
-        flex-wrap:wrap;
-        >div{flex-shrink:0;}
-    }
-    .stopka{
-        display:flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        >div{
-            width:50%;
-            margin:0px 20px;
-        }
-    }
-    .stopka>div{width:auto;}
-    .email{
-        flex-shrink: 0;
-    }
-    spatio{
-        height:100px;
     }
 
 }
